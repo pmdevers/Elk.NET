@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +29,16 @@ namespace Elk.NET
             var name = property.Name.ToLower();
             if (IsBulitinType(property.PropertyType))
             {
-                var value = property.GetValue(exception);
-
-                if (value != null)
-                    serialize.Add(name, value.ToString());
+                try
+                {
+                    var value = property.GetValue(exception);
+                    if (value != null)
+                        serialize.Add(name, value.ToString());
+                }
+                catch (Exception ex)
+                {
+                   Debug.Write(ex.Message);
+                }
             }
         }
 

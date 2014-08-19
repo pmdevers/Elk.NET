@@ -46,7 +46,7 @@ namespace Elk.NET
             {
                 var value = Serializer.SerializeObject(exception, logDate);
                 
-                _client.Index(Index, "Exceptions", value);
+                var response = _client.Index(Index, "Exceptions", value);
 
                 exception = exception.InnerException;
             }
