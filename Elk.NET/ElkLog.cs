@@ -20,6 +20,7 @@ namespace Elk.NET
         #region Singleton
         private static readonly Lazy<ElkLog> lazy = new Lazy<ElkLog>(() => new ElkLog());
         public static ElkLog Instance { get { return lazy.Value; } }
+        
         private ElkLog()
         {
             var elasticSearch = ConfigurationManager.AppSettings.Get(ElasticSearchUri);
