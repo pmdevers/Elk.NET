@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,13 +19,19 @@ namespace Elk.NET.Example
             }
             catch (Exception ex)
             {
-                ElkLog.Instance.Debug(new CustomException("Error", ex));
+                Trace.Write("Exception");
+                ElkLog.Instance.Debug(ex);
             }
         }
 
 
         public static void Test()
         {
+            throw new HttpException(404, "Not Found!");
+
+
+
+
             throw new HttpParseException("Not Found!");
 
             throw new NotImplementedException();
