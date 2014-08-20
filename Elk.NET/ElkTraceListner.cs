@@ -38,16 +38,28 @@ namespace Elk.NET
 
         public override void Write(string message)
         {
+            SendMethod(message);
+        }
+
+        public override void WriteLine(string message)
+        {
+            SendMethod(message);
+        }
+
+        private void SendMethod(string message)
+        {
             var timeStamp = DateTime.UtcNow.ToString("o");
             var source = Process.GetCurrentProcess().ProcessName;
             var stacktrace = Environment.StackTrace;
+            var methodName = (new StackTrace()).GetFrame(StackTrace.METHODS_TO_SKIP + 4).GetMethod().Name;
 
             var jObject = new JObject
             {
                 { "timestamp", timeStamp },
                 { "source", source },
                 { "stacktrace", stacktrace },
-                { "message", message }
+                { "message", message },
+                { "method", methodName }
             };
 
             try
@@ -58,13 +70,6 @@ namespace Elk.NET
             {
                 
             }
-            
-            //var method = MethodInfo.GetCurrentMethod().
-        }
-
-        public override void WriteLine(string message)
-        {
-            throw new NotImplementedException();
         }
     }
 }

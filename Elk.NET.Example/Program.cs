@@ -27,6 +27,8 @@ namespace Elk.NET.Example
 
         public static void Test()
         {
+            Trace.Write("Entering");
+
             throw new HttpException(404, "Not Found!");
 
 
@@ -34,7 +36,7 @@ namespace Elk.NET.Example
 
             throw new HttpParseException("Not Found!");
 
-            throw new NotImplementedException();
+            Trace.Write("Exiting");
         }
     }
 }
