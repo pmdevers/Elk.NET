@@ -51,7 +51,7 @@ $packOptions = ""
 $sourceToUploadTo = ""
 
 # The API Key to use to upload the package to the gallery. If not provided and a system-level one does not exist for the specified Source, you will be prompted for it.
-$apiKey = ""
+$apiKey = "bbf1178e-6635-4c35-9cad-ef05c176b0f6"
 
 # Specify any NuGet Push options to pass to nuget.exe.
 #	e.g. $pushOptions = "-Timeout 120"
