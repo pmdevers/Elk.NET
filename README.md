@@ -19,7 +19,7 @@ The kibana format of the index is [elknet-]YYYY-MM-DD
 
 ##Usage
 
-#Exceptions
+###Exceptions
 
 Now that Elk.NET is configured you can simply use it like
 
@@ -34,7 +34,7 @@ Now that Elk.NET is configured you can simply use it like
 
 This will log the error to Kibana.
 
-#Trace
+###Trace
 
 To write a trace message to Kibana add te following to the **configuration** section in your config
 
