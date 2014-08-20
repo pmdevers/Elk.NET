@@ -18,7 +18,7 @@ namespace Elk.NET.Example
             }
             catch (Exception ex)
             {
-                ElkLog.Instance.Debug(ex);
+                ElkLog.Instance.Debug(new CustomException("Error", ex));
             }
         }
 
