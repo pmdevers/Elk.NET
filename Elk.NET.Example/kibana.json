@@ -10,7 +10,7 @@
                     "pin": false,
                     "type": "lucene",
                     "enable": true,
-                    "query": ""
+                    "query": "*"
                 }
             },
             "ids": [
@@ -22,7 +22,7 @@
                 "0": {
                     "type": "time",
                     "field": "timestamp",
-                    "from": "now-6h",
+                    "from": "now-2d",
                     "to": "now",
                     "mandate": "must",
                     "active": true,
@@ -68,7 +68,8 @@
                         "source",
                         "stacktrace",
                         "status",
-                        "timestamp"
+                        "timestamp",
+                        "environment"
                     ],
                     "localTime": true,
                     "timeField": "timestamp",
@@ -94,10 +95,10 @@
         }
     ],
     "editable": true,
-    "failover": true,
+    "failover": false,
     "index": {
         "interval": "day",
-        "pattern": "[elknet-]YYYY.MM.DD",
+        "pattern": "[elknet-]YYYY-MM-DD",
         "default": "elknet-2014-08-19",
         "warm_fields": true
     },
@@ -111,8 +112,8 @@
             "query": "*",
             "pinned": true,
             "history": [
-                "",
                 "*",
+                "",
                 "Not"
             ],
             "remember": 10,
