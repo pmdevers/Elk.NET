@@ -9,11 +9,11 @@ using Newtonsoft.Json.Linq;
 
 namespace Elk.NET
 {
-    public class ExceptionSerializer
+    public class ExceptionSerializer : IExceptionSerializer
     {
-        public string SerializeObject(Exception exception, DateTime dateTime)
+        public JObject Serialize(Exception exception)
         {
-            var serialize = new JObject { { "timestamp", dateTime.ToString("o") } };
+            var serialize = new JObject();
 
             var properties = exception.GetType().GetProperties();
             foreach (var property in properties)
@@ -21,7 +21,7 @@ namespace Elk.NET
                 AddProperty(property, serialize, exception);
             }
 
-            return serialize.ToString();
+            return serialize;
         }
 
         private void AddProperty(System.Reflection.PropertyInfo property, JObject serialize, Exception exception)
