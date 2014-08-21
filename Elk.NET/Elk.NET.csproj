@@ -54,6 +54,7 @@
     <Compile Include="ElkLog.cs" />
     <Compile Include="ElkTraceListner.cs" />
     <Compile Include="ExceptionSerializer.cs" />
+    <Compile Include="IExceptionSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TraceException.cs" />
   </ItemGroup>
