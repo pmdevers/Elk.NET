@@ -29,6 +29,11 @@ namespace Elk.NET
             var url = ConfigurationManager.AppSettings.Get(ElasticSearchUri);
             var index = ConfigurationManager.AppSettings.Get(ElasticSearchTraceIndex);
 
+            if (string.IsNullOrEmpty(url))
+                throw new ApplicationException(string.Format("Elk.NET setting {0} not set.", ElasticSearchUri));
+            if (string.IsNullOrEmpty(index))
+                throw new ApplicationException(string.Format("Elk.NET setting {0} not set.", ElasticSearchTraceIndex));
+
             Uri = new Uri(url);
 
             Index = index.ToLower() + "-" + DateTime.UtcNow.ToString("yyyy-MM-dd");
